@@ -11,14 +11,14 @@ import static org.junit.Assert.*;
 
 public class testEitan {
     Coordinates coordinatesToAttack = new Coordinates(31.389906, 34.330190);
-    AttackMission attackMission = new AttackMission("suspect house", coordinatesToAttack);
-    BdaMission bdaMission = new BdaMission("suspect house", coordinatesToAttack);
+    AttackMission attackMission = new AttackMission("house", coordinatesToAttack);
+    BdaMission bdaMission = new BdaMission("house", coordinatesToAttack);
     IntelligenceMission intelligenceMission = new IntelligenceMission("Deir al Balah", coordinatesToAttack);
     private Eitan eitan = new Eitan(1, "nimrod", "elint", "Sheleg", attackMission, 52, true);
 
     @Test
     public void testAttack(){
-        String expectedMessage = "Sheleg: Eitan Attacking suspect house with: nimrodX1";
+        String expectedMessage = "Sheleg: Eitan Attacking house with: nimrodX1";
         String message = eitan.attack();
         assertEquals(message, expectedMessage);
     }

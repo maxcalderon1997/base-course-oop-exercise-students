@@ -12,8 +12,8 @@ import static org.junit.Assert.*;
 
 public class testZik {
     Coordinates coordinatesToAttack = new Coordinates(31.389906, 34.330190);
-    AttackMission attackMission = new AttackMission("suspect house", coordinatesToAttack);
-    BdaMission bdaMission = new BdaMission("suspect house", coordinatesToAttack);
+    AttackMission attackMission = new AttackMission("house", coordinatesToAttack);
+    BdaMission bdaMission = new BdaMission("house", coordinatesToAttack);
     IntelligenceMission intelligenceMission = new IntelligenceMission("Deir al Balah", coordinatesToAttack);
     private Zik zik = new Zik("thermal", "elint", "Fireman Sam", bdaMission, 14, true);
 
@@ -38,7 +38,7 @@ public class testZik {
     @Test
     public void testBda() throws MissionTypeException {
         zik.setMission(bdaMission);
-        String expectedMessage = "Fireman Sam: Zik taking pictures of suspect house with: thermal camera";
+        String expectedMessage = "Fireman Sam: Zik taking pictures of house with: thermal camera";
         String message = zik.preformBda();
         assertEquals(message,expectedMessage);
     }

@@ -15,14 +15,14 @@ import static org.junit.Assert.*;
 
 public class testF16 {
     Coordinates coordinatesToAttack = new Coordinates(31.389906, 34.330190);
-    AttackMission attackMission = new AttackMission("suspect house", coordinatesToAttack);
-    BdaMission bdaMission = new BdaMission("suspect house", coordinatesToAttack);
+    AttackMission attackMission = new AttackMission("house", coordinatesToAttack);
+    BdaMission bdaMission = new BdaMission("house", coordinatesToAttack);
     IntelligenceMission intelligenceMission = new IntelligenceMission("Deir al Balah", coordinatesToAttack);
     private F16 f16 = new F16("thermal", 2, "Spice250", "Tuli", attackMission, 5, true);
 
     @Test
     public void testAttack(){
-        String expectedMessage = "Tuli: F16 Attacking suspect house with: Spice250X2";
+        String expectedMessage = "Tuli: F16 Attacking house with: Spice250X2";
         String message = f16.attack();
         assertEquals(message,expectedMessage);
     }
@@ -30,7 +30,7 @@ public class testF16 {
     @Test
     public void testBda() throws MissionTypeException {
         f16.setMission(bdaMission);
-        String expectedMessage = "Tuli: F16 taking pictures of suspect house with: thermal camera";
+        String expectedMessage = "Tuli: F16 taking pictures of house with: thermal camera";
         String message = f16.preformBda();
         assertEquals(message,expectedMessage);
     }
